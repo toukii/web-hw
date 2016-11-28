@@ -2,10 +2,10 @@ FROM golang:latest
 
 ENV GOPATH /gopath
 
-WORKDIR /gopath/app
+WORKDIR /gopath/bin
 
-RUN git clone --depth 1 https://github.com/toukii/web-hw && cd web-hw && go build -o web && pwd && ls
+RUN go get github.com/toukii/web-hw && ls
 
 EXPOSE 80
 
-CMD ["/gopath/app/web-hw/web"]
+CMD ["/gopath/bin/web-hw"]
